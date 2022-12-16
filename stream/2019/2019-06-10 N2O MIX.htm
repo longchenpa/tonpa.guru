@@ -19,24 +19,24 @@
     <section>
         <h3>ELIXIR N2O MIX</h3>
 
-        <p>Yeah, that's right, we released a new version of N2O for Elixir.
-           As this is june and N2O is 6 years old it is 6.6.6 :-)
-           Generally speaking, it was already so long time ago, I just dropped Elixir
-           support for a focusing on something meaningful at least at Erlang side.</p>
+        <p>Так, це вірно, ми випустили нову версію N2O для Elixir.
+           Оскільки зараз червень, а N2O 6 років, це 6.6.6 :-)
+           Загалом, це було вже так давно, що я відмовився від підтримки Elixir, задля того
+           щоб мати змогу зосередитись на чомусь значущому, принаймні на стороні Erlang.</p>
 
-        <p>By full N2O Elixir support I mean Erlang records auto import with module usage,
-           and proxying, recoloring calls from :n2o.sid() to N2O.sid(), etc. Also we
-           assume mix.exs contains application entry point definition and
-           other vital stuff but no more! As N2O came from the land of keeping ass clean,
-           we encourage only vital macros at the top of the Sample.Index page:</p>
+        <p>Під повною підтримкою N2O Elixir, я маю на увазі, автоматичний імпорт записів Erlang із використанням модуля
+           та проксі-сервера, модифікування викликів із :n2o.sid() на N2O.sid(), тощо. Також, ми
+           припускаємо, що mix.ex містить визначення точки входу програми та
+           інші життєво важливі речі, але не більше! Оскільки N2O прийшов із країни підтримки чисті дупи,
+           ми рекомендуємо лише життєво важливі макроси у верхній частині сторінки Sample.Index:</p>
 
         <figure><code>
  defmodule Sample.Index do
        use N2O, with: [:kvx, :n2o, :nitro]
         </code></figure>
 
-        <p>The minimal <b>sys.config</b> in Elixir <b>config.exs</b> syntax will have only
-           proper KVX setup for custom DB layer (using <b>kvx_st</b> as a custom stream backend implementation for RocksDB), NITRO protocol and Sample.Routes.</p>
+        <p>Мінімальний <b>sys.config</b> у Elixir <b>config.exs</b> синтаксисі матиме лише
+           належне налаштування KVX для власного рівня DB (з використанням <b>kvx_st</b> як власної реалізації потокового серверу для RocksDB), протоколу NITRO та Sample.Routes.</p>
 
         <figure><code>
  config :n2o,
@@ -49,8 +49,8 @@
    schema: [:kvx,:kvx_stream]
         </code></figure>
 
-        <p>We are using plain binary pattern match as a fastest way of routing,
-           but you may use any code at this level:</p>
+        <p>Ми використовуємо простий бінарний шаблон як найшвидший спосіб маршрутизації,
+           але ви можете використовувати будь-який код на цьому рівні:</p>
 
         <figure><code>
  defmodule Sample.Routes do
@@ -72,9 +72,9 @@
    def route(_),                            do: Sample.Login
         </code></figure>
 
-        <p>The actual page that contains direct embedding of N2O JavaScript SDK from CDN
-           is following and is included as a static file for cowboy serving (could also
-           be obtained from CDN):</p>
+        <p>Фактична сторінка, яка містить пряме вбудовування N2O JavaScript SDK із CDN,
+           наведена нижче та включена як статичний файл для ковбойського обслуговування (може також
+           отримати з CDN):</p>
 
         <p>HTML:</p>
 
@@ -114,9 +114,9 @@
 
         <h3>INIT</h3>
 
-        <p>The code that mounts JavaScript postback events that delivers source DOM
-           information to server is here. On connect page should sent <b>'N2O'</b> init marker
-           that calls the <b>:init</b> case of <b>event</b> function in Sample.index module:</p>
+        <p>Тут знаходиться код, який монтує події зворотного зв’язку JavaScript, що доставляє вихідну інформацію DOM
+           на сервера. На сторінці підключення має бути надіслано маркер ініціалізації <b>'N2O'</b>,
+           який викликає регістр <b>:init</b> case of <b>event</b> у модулі Sample.index </p>
 
         <figure><code>
  def event(:init) do
@@ -136,13 +136,13 @@
  end
         </code></figure>
 
-        <p>It contains KVX cursor initialization for that particular room feed
-           and also proceed GPROC/SYN subscriptions for two topics: <b>{:topic, room}</b> 
-           and <b>:n2o.sid()</b> --- authorized WebSocket process.
-           Note that in case of updat DOM elements they must already be present in page
-           otherwise you will get an error exception. At the botton of <b>:init</b> Nitrogen event
-           you can see database retrival of recorded messages. All of them
-           are being passed trough <b>{:client,_}</b> event.</p>
+        <p>Він містить ініціалізацію курсору KVX для цієї конкретної кімнати,
+           а також продовжити підписку GPROC/SYN для двох тем: <b>{:topic, room}</b> 
+           і <b>:n2o.sid()</b> --- авторизований процес WebSocket.
+           Зауважте, що у випадку оновлення елементів DOM вони вже повинні бути присутніми на сторінці,
+           інакше ви отримаєте виняток помилки. У нижній частині події <b>:init</b> Nitrogen
+           ви можете побачити отримання записаних повідомлень із бази даних. Усі вони
+           передаються через подію <b>{:client,_}</b> event.</p>
 
         <h3>RENDER</h3>
 
@@ -152,13 +152,13 @@
      NITRO.insert_top(:history, message(body: [author(body: usr), msg]))
  end
         </code></figure>
-        <p>In this event it simply adds the DOM element to the <b>:history</b> div.</p>
+        <p>У цьому випадку він просто додає елемент DOM до <b>:history</b> div.</p>
 
         <h3>CHAT</h3>
 
-        <p>The main event of the Sample.Index application module is the <b>:chat</b>.
-           It retrives room and user names from session and message from client's
-           sent event, than stores it in the KVX and notify the render.</p>
+        <p>Основною подією прикладного модуля Sample.Index є <b>:chat</b>.
+           Він отримує імена кімнат і користувачів із сеансу та повідомлення з події, яка була надіслана клієнтом,
+           потім зберігає їх у KVX і повідомляє про рендеринг.</p>
 
         <figure><code>
  def event(:chat) do
@@ -173,8 +173,8 @@
 
         <figure><img src="https://pbs.twimg.com/media/D8tLybIXUAEgwS4?format=jpg&name=large"></figure>
 
-        <p>Next version of MAD will be able to produce Elixir skeleton code.
-           The sources of working SAMPLE ported to Elixir is here:</p>
+        <p>Наступна версія MAD зможе створити скелетний код Elixir.
+           Джерела робочого SAMPLE портованого на Elixir, тут:</p>
 
         <p>— <a href="https://github.com/o7/sample">o7/sample</a></p>
 

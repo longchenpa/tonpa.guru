@@ -17,25 +17,25 @@
 </nav>
 <main>
     <section>
-        <h3>Часть 5. Администратор процессов</h3>
+        <h3>Частина 5. Адміністратор процесів</h3>
 
-        <p>— <a href="2019-06-30%20DEPOT.htm">Часть 1. Введение</a><br>
-           — <a href="2019-07-01%20ERP%20MOD.htm">Часть 2. Общая структура</a><br>
-           — <a href="2019-07-08%20ERP%20BOOT.htm">Часть 3. Первичные цепочки</a><br>
-           — <a href="2019-07-08%20KVS%20ADM.htm">Часть 4. Администратор данных</a><br>
-           — <a href="2019-07-09%20BPE%20ADM.htm">Часть 5. Администратор процессов</a><br>
-           — <a href="2019-07-17%20ENT%20APP.htm">Часть 6. Структура приложения</a><br>
-           — <a href="2019-07-19%20ENT%20PUB.htm">Часть 7. Публикация в GCP</a></p>
+        <p>— <a href="2019-06-30%20DEPOT.htm">Частина 1. Вступ</a><br>
+           — <a href="2019-07-01%20ERP%20MOD.htm">Частина 2. Загальна структура</a><br>
+           — <a href="2019-07-08%20ERP%20BOOT.htm">Частина 3. Первинні ланцюжки</a><br>
+           — <a href="2019-07-08%20KVS%20ADM.htm">Частина 4. Адміністратор даних</a><br>
+           — <a href="2019-07-09%20BPE%20ADM.htm">Частина 5. Адміністратор процесів</a><br>
+           — <a href="2019-07-17%20ENT%20APP.htm">Частина 6. Структура додатка</a><br>
+           — <a href="2019-07-19%20ENT%20PUB.htm">Частина 7. Публікація в GCP</a></p>
 
-        <p>В этой статье я расскажу как написать простую админку для BPE
+        <p>У цій статті я розповім, як написати просту адмінку для BPE
            на NITRO.</p>
 
     </section>
     <section>
-    <h3>Постановка задачи</h3>
-    <h3>Процессы</h3>
+    <h3>Постановка задачі</h3>
+    <h3>Процеси</h3>
 
-    <h4>Протокол процесса BPE.Account</h4>
+    <h4>Протокол процесу BPE.Account</h4>
 
    <figure><code>
 def action({:request, :Created:})
@@ -45,7 +45,7 @@ def action({:request, :Payment})
 def action({:request, :Process})
 def action({:request, :Final})
    </code></figure>
-    <h3>Страницы</h3>
+    <h3>Сторінки</h3>
 
     <h4>BPE.Index</h4>
     <figure><img src="ent/3.png"></figure>
@@ -67,32 +67,32 @@ def event({:off, form})
     </code></figure>
 
 
-    <h3>Редакторы</h3>
+    <h3>Редактори</h3>
 
     <h4>Форма BPE.Forms.Create</h4>
 
     <figure><img src="ent/12.png"></figure>
 
-    <h3>Векторы</h3>
+    <h3>Вектори</h3>
 
-    <h4>Строка BPE.Rows.Process</h4>
+    <h4>Рядок BPE.Rows.Process</h4>
 
     <figure><img src="ent/13.png"></figure>
 
-    <h4>Строка BPE.Rows.Trace</h4>
+    <h4>Рядок BPE.Rows.Trace</h4>
 
     <figure><img src="ent/14.png"></figure>
 
     <h3>Роутер</h3>
     
-    <p>Роутер страниц модуля BPE.</p>
+    <p>Роутер сторінок модуля BPE.</p>
 
    <p>
 act — BPE.Actor<br>
 bpe — BPE.Index<br>
     </p>
 
-    <p>Код приложения можно найти в следующих репозиториях:</p>
+    <p>Код програми можна знайти в наступних репозиторіях:</p>
     <p>— <a href="https://github.com/erpuno/plm">erpuno/plm</a></p>
     </section>
 </main>
