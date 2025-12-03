@@ -1,0 +1,93 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="Maxim Sokhatsky" />
+    <title>2025-12-03 Submission Decline</title>
+    <link rel="stylesheet" href="../../blank.css" />
+    <link rel="stylesheet" href="../../journal.css" />
+</head>
+<body>
+<nav>
+    <a href='../../index.html'>5HT</a>
+    <a href='../index.html'>TOP</a>
+    <a href='#'>2025-12-03 Submission Decline</a>
+</nav>
+<main>
+    <section>
+
+<h3>Відмови в публікації</h3>
+
+<p align=right>Колекціоную вімови і їх причини, <br>
+можливо коли хтось захче зайнятися <br>
+теорією типів або поступити в університет, <br>
+то хай знають шо не потрібно цього робити. </p>
+
+    <br>
+
+<p>Ну це останній український університет куди я посилав, більше не лишилося, включаючи НАН України, їм
+теж не цікавий ні Лоран, ні формальні доведення. Такі справи, хлопці, можете сміливо продавати своє тіло і розум
+блокчейнам сім'ї Трампа і ракшасам. Якшо ви не хочете писати на Coq і Lean вас не пустять в академію. Доведеться як
+я тратити сотні тисяч доларів на освіту за кордоном і потім ви все одно залишитесь одні.</p>
+
+<p><a href="https://groupoid.space/books/vol3/laurent.pdf">Issue XX: Аналітична Система Типів</a></P>
+
+<p>Зауважне назву: Аналітична Система Типів. В ЛНУ навіть не розуміють чим кінцевий продукт на ринку
+типу Lean і Coq відрізняється від математичної моделі і екскізної архітектури.</p>
+
+    <br>
+
+    <hr>
+
+<h4>Вступ до Маленького Ядра</h4>
+
+<p>Dear Dr. Сохацький Максим:</p>
+
+<p>We have received the reviewer's comments on your work referenced above. In light of this report, I regret to inform you that we are unable to consider your paper for publication in our journal.</p>
+
+<p>The reviewers' comments can be found at the end of this email or can be accessed by following the provided link.</p>
+
+<p>We have reached a decision regarding your submission to Matematychni Studii, "Laurent: Syntentic Analysis: Laurent Schwartz: Analytical Type System for Mechanization of Theorems of Functional Analysis".</p>
+
+<p>Our decision is to: Decline Submission</p>
+
+<p>I hope you will not let this experience deter you from sending us your high quality work in future.</p>
+
+<p>Sincerely,
+Oleh Skaskiv
+Ivan Franko National University of Lviv, Lviv
+olskask@gmail.com
+</p>
+
+<p>Reviewer A:</p>
+
+<p>The paper under review introduces Laurent, a new interactive proof assistant aimed at supporting formalization tasks in functional analysis. Interactive proof assistants - such as Lean and Rocq (formerly Coq) - are important tools for computer-aided discovery and formal verification of mathematical proofs. Both Lean and Rocq have been used to formalize well-known results, ranging from the classical Four Color Theorem to recent developments in condensed mathematics by Clausen and Scholze. These successes illustrate the level of maturity and robustness that contemporary state-of-the-art systems have achieved.</p>
+
+<p>The author proposes Laurent as a proof assistant specifically tailored to the needs of analysis. The system is written in OCaml and integrates the Z3 SMT solver (here and below, SMT abbreviates `satisfiability modulo theories'). A link to the source code is provided, though only as a footnote on the last page, and without a clear attribution of authorship for the software.</p>
+
+<p>From a technical standpoint, the system is still at an early stage. Starting Laurent via `dune exec laurent repl' launches an interactive mode that begins with a single preloaded (and trivial) goal. Although help functionality is promised, this appears not to be implemented. Only a small collection of tactics is currently supported; some of these, such as Elim and Apply, are declared but not implemented, and the paper acknowledges this.</p>
+
+<p>The integration with Z3 is also limited. Nonlinear operations (multiplication, exponentiation, etc.) are not translated into SMT, effectively restricting Laurent to quantifier-free linear arithmetic. Moreover, the constructor `RealConst' discards fractional parts, so only integer constants are handled correctly at present. As a result, any statement requiring nonlinear arithmetic, transcendental functions, quantifiers, measure-theoretic constructs (including integration), or even simple fractional constants cannot be discharged automatically. While such statements may still be type-checked or proven interactively, there is currently no automation to support them.</p>
+
+<p>In this light, the way Laurent is presented in the manuscript appears somewhat overly optimistic. For example, Section 3.2 introduces a syntax for Lebesgue integration, yet there is no evaluator for integrals, nor does the Z3 bridge address integration semantics.</p>
+
+<p>Regarding accessibility, the paper is said to target a “formal mathematics audience.” Whatever precise meaning the author intends by this phrase, the exposition is unlikely to be accessible to readers without prior experience with proof assistants. For instance, the Backus–Naur-style grammar presented at the end of Section 1 may be too technical for an interested but inexperienced audience.</p>
+
+<p>On a conceptual level, the guiding idea of creating a proof assistant “tailored to the domain-specific needs of analysis, incorporating explicit primitives for limits, measures, and algebraic structures” is debatable. It is unclear why reduced reliance on established libraries - such as Lean’s mathlib - should be viewed as an advantage, or why analogous analytic primitives and tactics could not be implemented within existing, more mature systems such as Lean or Rocq.</p>
+
+<p>To illustrate this point, I experimented with a large language model by asking it to generate a simple proof assistant in OCaml using Z3 and to produce a LaTeX-formatted presentation of the system. The resulting documents (“elementary“ and “advanced“ versions) are included with this review. While not intended as a direct comparison, they raise the question of whether the current implementation and presentation of Laurent is sufficiently developed to warrant publication in a research journal.</p>
+
+<p>Despite these critical remarks, my overall assessment remains cautiously positive. I appreciate the initiative to develop homegrown proof-assistant technology and agree that introducing such work to the broader mathematical community is worthwhile. As a positive example of this kind, I can mention the Lean tutorial
+https://leanprover-community.github.io/learn.html</p>
+
+<p>I believe that an accessible introductory article on proof assistants could be valuable and appropriate for publication, provided it is genuinely written for a broad audience.</p>
+
+<p>Recommendation: Decline Submission</p>
+
+    </section>
+</main>
+<footer><a href="https://instagram.com/5HT/">Namdak Tönpa</a> <span class="heart">&nbsp;❤&nbsp;</span> <a href="https://n2o.dev/">N2O.DEV</a></footer>
+</body>
+</html>
