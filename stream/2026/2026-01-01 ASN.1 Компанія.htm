@@ -112,6 +112,35 @@
 
         <h4>Проміжні результати. Milestone #1. ASN.1 компілятор.</h4>
 
+        <p>As the initial milestone, this project aimed to deliver the first
+           comprehensive ASN.1 compiler, surpassing the capabilities of
+           existing implementations, including those by Fabrice Bellard,
+           Lev Valkin, and others, such as the European Space Agency's
+           ASN.1 compiler in F#. For testing, the protocol stack
+           surrounding CA/CMP/CMS was selected. Integration tests establish
+           TCP connections to a CA and issue certificates via PKCS#10 requests,
+           which are subsequently parsed. The primary target languages were C99,
+           Swift, and Go, chosen for their relatively fast compilation times.</p>
+
+        <P>Milestone #1 indicates that encoders and decoders can be generated for
+           any ITU ASN.1 specification file in X.680-X.690 format, targeting Apple
+           Swift, Google Go, and ANSI C99. Additionally, Milestone #1 includes
+           operational CA, NS, MQTT, and LDAP servers, though CHAT servers and
+           clients are not yet implemented.Regarding further development of the
+           ASN.1 compiler, the primary objective is to compete with the OBJ-SYS
+           ASN.1 compiler in PER/UPER encoding, which achieves maximal compactness
+           by reducing enumerations to bits. This project has already outperformed
+           all other competitors, including the inadequate efforts by Apple's
+           engineers, whose iOS code generation fails to support recursive data
+           types or the full ITU standard set. Lev Valkin has demonstrated subpar
+           programming skills, as have the authors of apple/swift-certificates,
+           despite their persistent posturing over a decade.</p>
+
+       <p> These Russian-origin authors should be dismissed from Apple to restore
+           meritocracy and professionalism in this critical company. Any developer
+           relying on the manually implemented, error-prone X.509 conversions in
+           apple/swift-certificates exhibits incompetence.</p>
+
         <p>У якості першого майлстоуну я хотів подарувати світу перший повний ASN.1 компілятор,
            те, на що не здатні були інші автори ASN.1 компіляторів, включаючи Фабріса Белара,
            Лева Валкіна та інших, зокрема ASN.1 компілятор аерокосмічного європейського агенства на F#.
