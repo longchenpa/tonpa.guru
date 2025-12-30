@@ -1,0 +1,75 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="Maxim Sokhatsky" />
+    <title>2026-01-02 Why ASN.1?</title>
+    <link rel="stylesheet" href="../../blank.css" />
+    <link rel="stylesheet" href="../../journal.css" />
+</head>
+<body>
+<nav>
+    <a href='../../index.html'>5HT</a>
+    <a href='../index.html'>TOP</a>
+    <a href='#'>2026-01-02</a>
+</nav>
+<main>
+    <section>
+        <h3>Why ASN.1?</h3>
+
+        <h4>Intro</h4>
+
+        <p>ASN.1 (Abstract Syntax Notation One), standardized by ITU-T and ISO/IEC since 1984,
+           remains the preferred choice in domains requiring strict interoperability, security,
+           and efficiency—telecommunications (3GPP 5G/6G protocols), cryptography (X.509, PKIX),
+           aviation, and intelligent transportation systems. In contrast, formats such as Protocol
+           Buffers, Thrift, FlatBuffers, and Cap'n Proto were designed primarily for internal
+           microservices and high-throughput applications. A direct technical comparison
+           reveals ASN.1's superior properties in several critical areas.</p>
+
+        <h4>Canonical and Deterministic Encoding</h4>
+
+        <p>DER (Distinguished Encoding Rules) and CER (Canonical Encoding Rules) enforce a unique byte sequence for any given abstract value. This determinism is mandatory for cryptographic signatures over structured data (e.g., TBSCertificate in X.509) because non-canonical encodings enable signature forgery via redundant representations.</p>
+
+        <p>Protocol Buffers, Thrift, and most modern binary formats use varint encoding and field ordering that permit multiple valid serializations of the same logical value. FlatBuffers and Cap'n Proto achieve zero-copy access through fixed offsets but do not guarantee canonical forms without additional constraints. As a result, these formats are unsuitable for standards requiring verifiable bit-exact equivalence.</p>
+
+        <h4>Bit-Level Efficiency with Constraint Exploitation</h4>
+
+        <p>Packed Encoding Rules (PER), particularly Unaligned PER (UPER), encode integers, enumerations, and lengths using the minimal number of bits permitted by schema constraints. For example, an INTEGER (0..7) is encoded in 3 bits, and constrained sequences eliminate length fields when sizes are fixed or bounded.</p>
+
+        <p>Empirical studies on 3GPP protocols (RRC, NGAP, F1AP) demonstrate UPER achieving 30–60 % smaller payloads than Protocol Buffers binary wire format under equivalent schemas. FlatBuffers and Cap'n Proto, relying on fixed-width fields and padding for alignment, exhibit higher overhead in constrained environments despite low deserialization cost.</p>
+
+        <h4>Expressive Type System and Built-In Validation</h4>
+
+        <p>ASN.1 supports: <br><br>
+        * Precise value ranges (INTEGER (min..max))<br>
+        * Size constraints on sequences and strings<br>
+        * Extensible information object classes<br>
+        * Parameterization and macro-like constructs</p>
+
+        <p>These enable automatic rejection of out-of-range or malformed data during decoding without application-level checks. Protocol Buffers and Thrift provide limited constraints (e.g., no native bounded integers beyond syntactic limits). FlatBuffers lacks true optional fields and versioned evolution mechanisms comparable to ASN.1's extensibility markers.</p>
+
+        <h4>Multiple Encoding Rules from a Single Schema</h4>
+
+        <p>A single ASN.1 module can be compiled to:DER/CER for cryptographic canonicality:<br><br>
+           * UPER/APER for radio interfaces<br>
+           * OER for automotive networks<br>
+           * BER for legacy compatibility<br>
+           * XER/JER for XML/JSON interoperability</p>
+
+        <p>Competing formats typically support one primary binary encoding, with JSON mappings added as secondary, non-normative conversions that lose fidelity.</p>
+
+        <h4>Proven Deployment in Constrained and Regulated Environments</h4>
+
+        <p>ASN.1 with PER variants is mandated by 3GPP for all air-interface and core-network signaling. Every modern cellular device implements ASN.1 encoders/decoders for RRC and NAS layers. X.509 certificate processing relies exclusively on DER. These deployments operate under strict regulatory certification and interoperability testing—requirements that ad-hoc formats rarely satisfy.</p>
+
+        <h4>Conclusion</h4>
+
+        <p>For general-purpose microservices with flexible schemas and abundant bandwidth, Protocol Buffers and similar formats offer adequate performance and developer convenience. However, in applications demanding deterministic encoding, minimal bit usage, rigorous validation, and long-term standards compliance, ASN.1 provides capabilities that current alternatives do not match. Its continued dominance in telecommunications and security standards reflects these technical advantages rather than inertia.</p>
+
+    <section>
+</main>
+</body>
+</html>
