@@ -1,0 +1,48 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="Maxim Sokhatsky" />
+    <title>2026-11-16</title>
+    <link rel="stylesheet" href="../../blank.css" />
+    <link rel="stylesheet" href="../../journal.css" />
+</head>
+<body>
+<nav>
+    <a href='../../index.html'>5HT</a>
+    <a href='../index.html'>TOP</a>
+    <a href='#'>2026-11-16</a>
+</nav>
+<main>
+    <section>
+        <h3> RT </h3>
+
+        <h4> Fast Clean-room Multiplatform C Run-Time for RTOS </h4>
+
+        <p> I put together a small clean-room C99 runtime focused on real-time and high-integrity constraints:</p>
+
+<p>— Zero heap requirement, no large static tables (no Unicode/collation).</p>
+<p>— O(1) bounded stack sort.</p>
+<p>— Designed against MISRA C:2023 / CERT C / NASA Power of Ten style rules.</p>
+<p>— Current size: ~1.2–10.5 kB .text depending on configuration.</p>
+<p>— Explicit comparisons against dietlibc, picolibc, NuttX libc, etc.</p>
+
+<p>Page with details and size tables: <a href="https://rt.btron.pro">rt.btron.pro</a></p>.
+
+<p>Curious about feedback from people who actually ship constrained or safety-oriented RTOS code. What would you change or drop?</p>
+
+<hr>
+
+<p>
+[1]. <a href="https://www.reddit.com/r/embedded/comments/1xwr8ch/fast_cleanroom_multiplarform_c_runtime_for_rtos/">Reddit r/embedded</a> <br>
+[2]. <a href="https://forum.osdev.org/viewtopic.php?t=58429">OSDev Forum</a> <br>
+[3]. <a href="https://github.com/msx-btron/rt/">Github Sources</a> <br>
+<p>
+
+    </section>
+</main>
+<footer>Namdak Tonpa <span class="heart">&nbsp;❤&nbsp;</span> 2005—2026</footer>
+</body>
+</html>
